@@ -1,8 +1,8 @@
-# misc
-.DS_Store
-
 # config
 config
 
 # dependencies
 node_modules
+
+# misc
+.DS_Store
