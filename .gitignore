@@ -2,7 +2,7 @@
 .DS_Store
 
 # config
-**/config
+config
 
 # dependencies
 node_modules
