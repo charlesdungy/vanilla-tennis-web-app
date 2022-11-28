@@ -1,0 +1,26 @@
+{
+  "name": "vanilla-tennis-web-app",
+  "version": "1.0.0",
+  "description": "A <b>simple</b> full stack web app that displays tennis player profiles.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charlesdungy/vanilla-tennis-web-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/charlesdungy/vanilla-tennis-web-app/issues"
+  },
+  "homepage": "https://github.com/charlesdungy/vanilla-tennis-web-app#readme",
+  "devDependencies": {
+    "eslint": "^8.27.0"
+  },
+  "dependencies": {
+    "live-server": "^1.2.2"
+  }
+}
