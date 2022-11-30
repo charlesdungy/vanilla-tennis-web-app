@@ -21,7 +21,6 @@ export default class PlayerProfileBroker {
         getPlayer(payload),
         getPlayerAsset(payload),
       ]);
-      console.log(playerAssetData);
       this.#setPlayerProfileElement(playerData, playerAssetData);
     } catch (error) {
       console.error(error);
