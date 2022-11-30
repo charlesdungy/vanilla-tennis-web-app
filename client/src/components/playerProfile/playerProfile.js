@@ -2,6 +2,7 @@ class PlayerProfile extends HTMLElement {
   #attributes = {
     'data-age': (value) => (this.dataset.age = value),
     'data-country': (value) => (this.dataset.country = value),
+    'data-countryimage': (value) => (this.dataset.countryimage = value),
     'data-currentrank': (value) => (this.dataset.currentrank = value),
     'data-earnings': (value) => (this.dataset.earnings = value),
     'data-firstname': (value) => (this.dataset.firstname = value),
@@ -9,6 +10,7 @@ class PlayerProfile extends HTMLElement {
     'data-firstservepointswonpercent': (value) => (this.dataset.firstservepointswonpercent = value),
     'data-id': (value) => (this.dataset.id = value),
     'data-lastname': (value) => (this.dataset.lastname = value),
+    'data-playerimage': (value) => (this.dataset.playerimage = value),
     'data-record2022': (value) => (this.dataset.record2022 = value),
     'data-secondservepointswonpercent': (value) =>
       (this.dataset.secondservepointswonpercent = value),
@@ -29,6 +31,7 @@ class PlayerProfile extends HTMLElement {
     return [
       'data-age',
       'data-country',
+      'data-countryimage',
       'data-currentrank',
       'data-earnings',
       'data-firstname',
@@ -36,6 +39,7 @@ class PlayerProfile extends HTMLElement {
       'data-firstservepointswonpercent',
       'data-id',
       'data-lastname',
+      'data-playerimage',
       'data-record2022',
       'data-secondservepointswonpercent',
       'data-servicegameswonpercent',
@@ -60,7 +64,7 @@ class PlayerProfile extends HTMLElement {
             <div class="player-lastname">${this.dataset.lastname}</div>
           </div>
           <div class="player-country">
-            <img src="/client/assets/flags/rs.svg" alt="" />
+            <img src=${this.dataset.countryimage} alt="" />
           </div>
         </div>
         <div class="player-options">
@@ -106,7 +110,7 @@ class PlayerProfile extends HTMLElement {
               </div>
             </div>
           </div>
-          <img src="/client/assets/players/djokovic.png" alt="Player image" />
+          <img src=${this.dataset.playerimage}  alt="Player image" />
         </div>
         <div class="stats-container">
           <div class="first-serve">

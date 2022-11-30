@@ -1,5 +1,5 @@
 import pubsub from '../pubsub/pubsub.js';
-import { getPlayer } from '../api/PlayersAPI.js';
+import { getPlayer, getPlayerAsset } from '../api/PlayersAPI.js';
 
 export default class PlayerProfileBroker {
   #getPlayerDataEvent = 'getPlayerDataReady';
@@ -17,14 +17,19 @@ export default class PlayerProfileBroker {
 
   async getPlayerData(payload) {
     try {
-      const playerData = await getPlayer(payload);
-      this.#setPlayerProfileElement(playerData);
+      const [playerData, playerAssetData] = await Promise.all([
+        getPlayer(payload),
+        getPlayerAsset(payload),
+      ]);
+      console.log(playerAssetData);
+      this.#setPlayerProfileElement(playerData, playerAssetData);
     } catch (error) {
       console.error(error);
     }
   }
 
-  #setPlayerProfileElement(attributes) {
+  #setPlayerProfileElement(attributes, assetAttributes) {
+    console.log(assetAttributes);
     const rootElement = document.getElementById('root');
     rootElement.replaceChildren();
 
@@ -42,6 +47,8 @@ export default class PlayerProfileBroker {
     playerContainer.dataset.firstservepointswonpercent = attributes.FirstServePointsWonPercent;
     playerContainer.dataset.secondservepointswonpercent = attributes.SecondServePointsWonPercent;
     playerContainer.dataset.servicegameswonpercent = attributes.ServiceGamesWonPercent;
+    playerContainer.dataset.countryimage = assetAttributes.FlagImgPath;
+    playerContainer.dataset.playerimage = assetAttributes.PlayerImgPath;
 
     rootElement.appendChild(playerContainer);
   }
