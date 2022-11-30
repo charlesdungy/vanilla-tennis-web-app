@@ -1,4 +1,4 @@
-import { getPlayers, getSinglePlayerById } from '../services/playerService';
+import { getPlayers, getSinglePlayerAsset, getSinglePlayerById } from '../services/playerService';
 
 const getAllPlayers = async (req, res, next) => {
   try {
@@ -19,4 +19,14 @@ const getPlayerById = async (req, res, next) => {
   }
 };
 
-export { getAllPlayers, getPlayerById };
+const getPlayerAsset = async (req, res, next) => {
+  try {
+    const playerId = req.params.playerId;
+    const [result] = await getSinglePlayerAsset(playerId);
+    res.json(result);
+  } catch (err) {
+    next(err);
+  }
+};
+
+export { getAllPlayers, getPlayerAsset, getPlayerById };

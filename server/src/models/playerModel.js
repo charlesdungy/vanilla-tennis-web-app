@@ -24,4 +24,16 @@ const getPlayerById = async (playerId) => {
   }
 };
 
-export { get, getPlayerById };
+const getPlayerAsset = async (playerId) => {
+  try {
+    // eslint-disable-next-line quotes
+    const [rows] = await promisePool.execute(`call GetPlayerAsset(?)`, [playerId]);
+    const response = rows[0];
+    return response;
+  } catch (err) {
+    console.error(err);
+    return undefined;
+  }
+};
+
+export { get, getPlayerAsset, getPlayerById };

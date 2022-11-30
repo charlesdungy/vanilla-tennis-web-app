@@ -1,4 +1,4 @@
-import { get, getPlayerById } from '../models/playerModel';
+import { get, getPlayerAsset, getPlayerById } from '../models/playerModel';
 
 const getPlayers = async () => {
   try {
@@ -20,4 +20,14 @@ const getSinglePlayerById = async (playerId) => {
   }
 };
 
-export { getPlayers, getSinglePlayerById };
+const getSinglePlayerAsset = async (playerId) => {
+  try {
+    const result = await getPlayerAsset(playerId);
+    return result;
+  } catch (err) {
+    console.error(err);
+    return undefined;
+  }
+};
+
+export { getPlayers, getSinglePlayerAsset, getSinglePlayerById };
